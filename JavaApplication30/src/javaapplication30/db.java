@@ -37,7 +37,7 @@ public class db {
             .append("cantidad",cantidad);//cantidad de produccion
             control.insert(prod);
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "error en los datoses");//por si se ingresa un priary key repetido
+            JOptionPane.showMessageDialog(null, "Error en los datos");//por si se ingresa un priary key repetido
         }
     }
     public void SubirVenta(String cod,String des,int cantidad) {
