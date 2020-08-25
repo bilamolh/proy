@@ -24,6 +24,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
+        pcen.setVisible(false);
         /*Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension d = tk.getScreenSize();
         int ancho = (int)d.getWidth();
@@ -34,7 +35,8 @@ public class Main extends javax.swing.JFrame {
         txtuser.setBounds(50, 30, 90, 40);
         txtpass.setOpaque(false);
         txtpass.setBounds(50, 30, 90, 40);
-        
+        lblicon.setVisible(false);
+
         //puser.setOpaque(false);
         ImageIcon ic2 = new ImageIcon(getClass().getResource("/img/Muebles-modulares-vs-muebles-a-medida.jpg"));
         Icon ics2 = new ImageIcon(ic2.getImage().getScaledInstance(lblimg.getWidth(),lblimg.getHeight(), Image.SCALE_DEFAULT));
@@ -55,6 +57,7 @@ public class Main extends javax.swing.JFrame {
         pven = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        pcen = new javax.swing.JPanel();
         plog = new javax.swing.JPanel();
         lblnom = new javax.swing.JLabel();
         lblnom1 = new javax.swing.JLabel();
@@ -115,6 +118,9 @@ public class Main extends javax.swing.JFrame {
 
         jPanel3.add(panelIZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 260, 730));
 
+        pcen.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(pcen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 70, 1090, 730));
+
         plog.setBackground(new java.awt.Color(0, 0, 0));
 
         lblnom.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
@@ -166,6 +172,9 @@ public class Main extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/plantilla-login_1017-6719.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel2MouseEntered(evt);
             }
@@ -332,6 +341,12 @@ int xx,xy;
        pven.setBackground(new java.awt.Color(51,51,51));
     }//GEN-LAST:event_pvenMouseExited
 
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+       lblicon.setVisible(true);
+       plog.setVisible(false);
+         pcen.setVisible(true);
+    }//GEN-LAST:event_jLabel2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -379,6 +394,7 @@ int xx,xy;
     private javax.swing.JLabel lblnom1;
     private javax.swing.JPanel panelAR;
     private javax.swing.JPanel panelIZ;
+    private javax.swing.JPanel pcen;
     private javax.swing.JPanel plog;
     private javax.swing.JPanel pven;
     private javax.swing.JTextField txtpass;
