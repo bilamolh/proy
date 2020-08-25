@@ -27,23 +27,38 @@ public class db {
     DBCollection clientes = database.getCollection("clientes");
     
     public void SubirControl(String cod,String des,int cantidad) {
-        
         try {
             Date date = new Date();    
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             String fe = ""+dateFormat.format(date);
             DBObject prod = new BasicDBObject("_id",cod)//codigo
-            .append("desc",des )//descripcion       
+            .append("desc",des)//descripcion       
+            .append("fecha",fe)//fecha sin la hora
+            .append("cantidad",cantidad);//cantidad de produccion
+            control.insert(prod);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Error en los datos");//por si se ingresa un priary key repetido
+        }
+    }
+    public void SubirVenta(String cod,String des,int cantidad) {
+        try {
+            Date date = new Date();    
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String fe = ""+dateFormat.format(date);
+            DBObject prod = new BasicDBObject("_id",cod)//codigo
+            .append("desc",des)//descripcion       
             .append("fecha",fe)//fecha sin la hora
             .append("cantidad",cantidad);//cantidad de venta
-            control.insert(prod);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en los datos");//po si se ingresa un priary key repetido
+            ventas.insert(prod);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Error en los datos");//por si se ingresa un priary key repetido
         }
-        
     }
     public static void main(String[] args) {
-       db ok = new db();
-       //ok.SubirControl("6","3",3);
+        Main ok = new Main();
+        ok.setVisible(true);
+       //db ok = new db();
+       //ok.SubirControl("68","3",3);
+       //ok.SubirVenta("68","3",3);
     }
 }
